@@ -1,0 +1,20 @@
+Known Issues with SmartGit
+==========================
+All Platforms:
+--------------
+* Some accelerators like Del or Backspace should not be used because they
+  prevent the same shortcuts in text fields:
+  https://bugs.eclipse.org/bugs/show_bug.cgi?id=368767
+
+Mac OS X
+--------
+* When the toolbar is hidden and the full-screen option is toggled, it can
+  become visible again, but remains empty:
+  https://bugs.eclipse.org/bugs/show_bug.cgi?id=392803
+
+Windows
+-------
+* Sometimes accelerators don't work any more after switching the keyboard
+  layout:
+  https://bugs.eclipse.org/bugs/show_bug.cgi?id=415973
+  https://bugs.eclipse.org/bugs/show_bug.cgi?id=405453

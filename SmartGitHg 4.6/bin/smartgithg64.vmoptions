@@ -1,0 +1,11 @@
+# set initial Java heap size
+-Xms24m
+
+# set maximum Java heap size
+-Xmx2048m
+
+-include-options ${APPDATA}\syntevo\SmartGit\vmoptions
+
+-Dsmartboot.sourceDirectory=.updates
+-Dsmartgit.settings=${smartgit.installation}\.settings
+-Dsmartgit.storeProjectPathRelativeToApplicationRoot=true

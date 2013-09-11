@@ -1,0 +1,254 @@
+SmartGit/Hg 4.6.3 (2013-08-30)
+==============================
+New Features, Improvements
+--------------------------
+- Git
+  - Log: virtual "merging" commit is now only displayed if "HEAD" is selected
+
+Fixed Bugs
+----------
+- Git
+  - Blame: possible internal error related to "strange" author names
+  - Git-Flow, Finish Hotfix: error "not something we can merge" when using 
+    quotes in commit message
+  - Index Editor: possible internal error when closing to quick
+  - Interactive Rebase: fails if a commit with certain message would be
+    cherry-picked (removes line with leading #)
+  - Log:
+    - Reveal Commit may result in internal error for file logs
+	- selected "Insignificant commits" may result in empty graph
+- Hg
+  - Log: possible internal error for file log
+- SVN
+  - error "PROPFIND (forbidden)" in case of inaccessible project root
+- UI:
+  - possible sorting-related internal error ("Comparison method violates its
+    general contract!")
+  - Text editors, e.g. Compare:
+    - syntax-related error when typing with IME
+    - autoindenting lines (Enter) ignores character entered with IME
+  - tooltip may hide immediately when they would show up partly outside the
+    screen bounds
+
+
+SmartGit/Hg 4.6.2 (2013-08-07)
+==============================
+New Features, Improvements
+--------------------------
+- Git:
+    - Blame: "Changes Since"-highlighting is derived from "read-only"
+      background color to be compatible with dark schemes
+    - Fetch More: offers "changes/" refs to allow checking out individual
+      changes from Gerrit 
+    - Git-Flow Finish Hotfix: merging to develop became optional
+    - Set Tracked Branch: trackable branches are sorted naturally
+    - Submodule Reset: is applicable on working-tree and index-modified
+      submodules
+
+Fixed Bugs
+----------
+- Git:
+  - Log, Reveal Commit: did not work for refs which were not part of the
+    history of the currently selected refs
+  - Merge: in case of conflicts submodules were not reset
+  - Pushable Commits (Git-Flow): internal error in case of certain feature-
+    develop-constellations
+  - Push (To): pushing a tag also tried a diverged check
+  - Set Tracked Branch: HEAD was offered as trackable branch
+- SVN:
+  - Push: a file deletion might create a new empty directory in the repository
+- GUI:
+  - Clone: internal error entering one or more blanks for Repository URL and
+    clicking Next
+  - Gravatar: problems with e-mail addresses containing upper-case characters
+  - Changes view: possible internal error
+- Linux:
+  - Docking: layout was not remembered
+  - Ubuntu: Java 1.6 could be used though Java 1.7 was installed
+- OS X:
+  - Preferences, External Tool definition: *.app as command was rejected
+  - Log: might not be refreshed correctly after manipulating repository in
+    project window
+- Windows 7: pinned status bar icon changed after update
+
+
+SmartGit/Hg 4.6.1 (2013-07-15)
+==============================
+New Features, Improvements
+--------------------------
+- Autoupdate: limit old versions kept to 2 (instead of 5)
+- Log:
+  - Details: first parent commit should always be the first item
+  - Show Changes: use same accelerator as in project window (F4)
+- Pull: improved error message in case the remote (tracked) branch
+  is removed
+- Open Repository: make more obvious how to create a new repository
+
+Fixed Bugs
+----------
+- File Table:
+  - context menu: Stage and Unstage were not shown
+  - when sorting for "Index State", untracked files should not be
+    displayed before conflicting files
+- Log: possible endless "refreshing" loop for "Lost Heads" selected
+- Project Manager: new dialog will be closed automatically
+- Pushable Commits: possible internal error related to Git-Flow
+- Rebase: did not allow to rebase range onto ancestor
+- Refresh (Hg):
+  - possible performance problems related to UI
+  - possible performance problems with Mercurial 2.5 repositories
+- Refresh:
+  - Git-Flow): warning message "Could not resolve commit
+    'refs/heads/master'." after switching to hotfix, if there is
+    no local master
+  - internal error in case of corrupted $GIT_DIR/logs/refs/stash
+- Stash On Demand: should not use --keep-index
+- Window: Maximized state was not restored reliably
+
+
+SmartGit/Hg 4.6 (2013-07-03)
+============================
+Fixed Bugs
+----------
+- Git-Flow Finish Feature/Integrate from develop: should not offer
+  rebase if tracking and forced push is unselected
+- Pushable Commits: Outgoing branch commits (gray) were not properly
+  calculated for non-tracking feature branches
+- Startup (--log): "Path not found" error when trying to open Log for
+  repository root
+
+
+SmartGit/Hg 4.6 rc 4 (2013-07-01)
+=================================
+Fixed Bugs
+----------
+- Documentation: section on "Outgoing" commits added
+- Merge: if selected, fast-forward merging should be forced
+  (contrary to possible merge.ff = false configuration option)
+- Save Stash: "could not determine stash ID" warning if no stash had
+  been created (because there were no local modifications)
+
+
+SmartGit/Hg 4.6 rc 3 (2013-06-27)
+=================================
+Fixed Bugs
+----------
+- Git:
+  - Refresh:
+    - internal error if .gitignore file contains global ** patterns
+    - ** patterns in .gitignore must not be interpreted in special
+      way in Git < 1.8.2
+  - Log, Add Branch: misleading text
+- File Monitor (OS X): internal error
+
+
+SmartGit/Hg 4.6 rc 2 (2013-06-25)
+=================================
+New Features, Improvements
+--------------------------
+- .gitignore: support for '**' (since Git 1.8.2)
+- Add Submodule: should not allow to modify URL and only show URL
+  selection combobox if there are at least two suggestions
+- File table sorting: distinguish between "Modified (File Mode)" and
+  other Modified states
+- Git-Flow: configure should optionally allow to switch
+  git-flow support off
+- Log, Set Anchor Commit: should be available in Commits context menu
+
+Fixed Bugs
+----------
+- Git: System SSH with plink.exe did not work
+- Git-Flow: internal error when invoking Configure if there is
+  no "origin" remote
+- Mercurial: access over http://-protocol broken
+
+
+SmartGit/Hg 4.6 rc 1 (2013-06-20)
+=================================
+New Features, Improvements
+--------------------------
+- Git-flow: should remember feature- and hotfix-branch name in case
+  of failure
+
+Fixed Bugs
+----------
+- Git-flow: .gitflow file should be honored when initializing git-flow
+  for an already existing repository
+- Log: graph was "jumping" after switching HEAD to another commit
+  (if View|Group Commits By Branch was enabled)
+
+Documentation has been updated.
+
+
+SmartGit/Hg 4.6 preview 2 (2013-06-13)
+======================================
+New Features, Improvements
+--------------------------
+- Git:
+  - warn before modifying already pushed commits
+  - Log: group commits of distinct development lines together (instead of
+    strictly sorting by date)
+  - Push: even when using force, check whether the remote repository still
+    points to same commit as the remote branch
+- Git-flow:
+  - support for .gitflow configuration file (in working tree) helping to
+    initialize git-flow after a clone
+  - if a branch is behind its tracked branch, the user is asked whether to
+    perform the fast-forward merge or abort the command
+  - warn when trying to commit directly to master
+- "Pushable Commits"
+  - renamed to "Outgoing"
+  - columns for author name/e-mail (hidden by default)
+- Reverse-Merge has been renamed to Revert
+
+Fixed Bugs
+----------
+- Git:
+  - Synchronize/Push: possible internal error
+- Git-flow:
+  - possible internal error when configuring
+  - context-specific toolbar button: defaulted to configure though already
+    configured (but no branch checked out)
+- Hg:
+  - .hg/locks could remain when exiting while commands were running
+- Branches:
+  - Git-flow-categories: if creating a new feature (, hotfix, ...) the
+    category was not expanded correctly
+- GUI:
+  - mouse hover tooltip over truncated table cells also was too narrow
+  - OS X: the first row of the Log visually "jumped"
+
+
+SmartGit/Hg 4.6 preview 1 (2013-06-06)
+======================================
+New Features, Improvements
+--------------------------
+- Git:
+  - Apply Stash: toolbar button shows context menu to directly apply a specific
+    stash
+  - Branches: if configured, show Git-flow-specific branches in own categories
+  - Clone dialog: prefills URL input field if there is an URL in the clipboard
+  - Git-Flow:
+    - Configure
+    - Start/Finish Feature
+    - Integrate Develop
+    - Finish Feature
+    - Start/Finish Hotfix
+    - Start/Finish Release
+    - Start Support Branch
+    - context-dependent "Git-Flow" toolbar button
+  - Pull: smarter Rebase/Merge in case of diverged tracked branch
+  - Pushable Commits: show entire feature or hotfix (not just unpushed) commits
+  - Rebase: significant performance improvements on Windows, especially for XP
+- fixed location for SSH/http(s) helper scripts:
+  - executable flag is not required for temp directory any more
+  - no more problems with spaces in temp directory name
+- custom SmartGit-URL support: smartgit://cloneRepo/<URL>
+
+Fixed Bugs
+----------
+- Git
+  - Branches: Set Tracking did not work for selected local and remote branch
+  - Switching to origin/foo/bar branch suggested wrong local branch name (bar
+    instead of foo/bar)
+- OS X: clicks on the dock icon had no effect, especially for no open window

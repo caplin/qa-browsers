@@ -1,0 +1,14 @@
+# set initial Java heap size
+-Xms24m
+
+# set maximum Java heap size
+-Xmx256m
+
+# speeds up the boot time
+-Xverify:none
+
+-include-options ${APPDATA}\syntevo\SmartGit\vmoptions
+
+-Dsmartboot.sourceDirectory=.updates
+-Dsmartgit.settings=${smartgit.installation}\.settings
+-Dsmartgit.storeProjectPathRelativeToApplicationRoot=true
